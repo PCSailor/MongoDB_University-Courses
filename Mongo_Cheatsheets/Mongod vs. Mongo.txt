@@ -1,0 +1,9 @@
+
+
+
+
+--
+http://stackoverflow.com/questions/4883045/mongodb-difference-between-running-mongo-and-mongod-databases
+mongod is the "Mongo Daemon" it's basically the host process for the database. When you start mongod you're basically saying "start the MongoDB process and run it in the background". mongod has several default parameters, such as storing data in /data/db and running on port 27017.
+
+mongo is the command-line shell that connects to a specific instance of mongod. When you run mongo with no parameters it defaults to connecting to the localhost on port 27017

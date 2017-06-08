@@ -1,0 +1,24 @@
+// JSON objects are composed of key value pairs
+// Keys must be strings
+// Keys and Values must be seperated from each other by colons
+// Fields are seperated within a JSON object by a comma
+// JSON objects are open and closed using curly braces
+// JSON supported value types: strings, numbers, booleans, arrays, objects
+// Arrays may be composed of any combonation of supported value types
+// MongoDB makes have use of nesting
+// see www.json.org
+{
+    "headline": "Apple Reported Fourth Quarter Revenue Today",
+    "date": "2015-10-27T22:35:21.908Z",
+    "views": 1132,
+    "author": {
+        "name": "Bob Walker",
+        "title": "Lead Business Editor"
+    }, // an object within the object
+    "published": true,
+    "tags": [
+        "AAPL",
+        { "name": "city", "value": "Cupertino" }, // an object within an array within the object
+        ["Electronics", "Computers"] // an array within an array within the object
+    ]
+}
