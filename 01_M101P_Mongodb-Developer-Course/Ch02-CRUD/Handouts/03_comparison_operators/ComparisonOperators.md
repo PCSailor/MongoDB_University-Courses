@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 # ---------------------------------------------------------------------------------
 [MongoDB-Reference-Queries](https://docs.mongodb.com/manual/reference/operator/query/)
 Query Selectors

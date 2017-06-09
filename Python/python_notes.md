@@ -25,5 +25,4 @@ Every function in python starts with 'def', followed by function name, followed 
 # .tpl template view files
 Comments can not be after Python code or get error
 When using templates, a folder called 'views' must be used
-
-
+# -----------------------------------------------
