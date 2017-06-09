@@ -23,3 +23,8 @@
     
 
 
+# D elete
+
+    To delete a database:
+        1) use sumDatabaseName
+        2) db.dropDatabase();
