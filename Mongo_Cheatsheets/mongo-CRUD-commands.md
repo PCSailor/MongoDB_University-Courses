@@ -20,22 +20,11 @@
         db.sumCollection.find({ sumKey01 : "sumValue01" }, { sumKey02 : 1 }).pretty() # will contain only documents with sumKey02
         db.sumCollection.find({ sumKey01 : "sumValue01" }, { sumKey02 : 1, _id: 0 }).pretty() # # will contain only documents with sumKey02 AND will omit objectID values (=much cleaner results)
         # With the key, in the value, use a 1 to include or 0 to exclude from the query results
-    Comparison Operators [see Ch02-CRUD\03_comparison_operators AND Website](https://docs.mongodb.com/manual/reference/operator/query/)
-        db.sumCollection.find({ sumKey: { $gt: sumValue } }).count() // find greater than sumvalue
-        db.sumCollection.find({ sumKey: { $gt: sumValue01, $lt: sumValue02 } }).count() // find range between sumValue01 & sumValue02 
-        db.sumCollection.find({ "sumKey.sumSubKey": { $gte: sumValue01 }, sumKey02: { $gt: sumValue02, _id: 0 } }) // find documents having a value for sumKey.sumSubKey matching sumValue01 or greater AND also having a value for sumKey02 matching values greater than sumValue02 AND not printing the object_ID number
-        db.sumCollection.find({ sumKey: { $ne: "sumValue" } }).count() // 
-        db.sumCollection.find({ sumKey: { $ne: "sumValue" } }, {sumKey01: 1, sumKey02: 1, _id: 0}).count() // 
-        db.sumCollection.find({ sumKey: { $in: ["sumValue01", "sumValue02"] } }).pretty() // find documents that have a value for sumKey matching any one of the values within the $in array // The values of $in must be an array
-    Element Operators
-        db.sumCollection.find({ "sumKey.sumSubKey": { $exists: true } }) // test for field existance of sumKey.sumSubKey
-        db.sumCollections.find({ "sumKey.sumSubKey": { $exists: false } }) // test for non-existance of sumKey.sumSubKey field
-        db.sumCollection.find({ _id: { $type: "string" } }) // searches for all documents with an id field and a typeof string // Value of $type may be either a BSON type number or the string alias
-    Logical
-        db.sumCollection.find({ $or: [{ "sumKey01.sumSubKey": { $gt: 99 } }, { "sumKey02": { $gt: 95 } } ]})
-        db.sumCollection.find({ $and: [{ "sumKey01": { $ne: 100 } }, { "same-sumKey01" { $exists: true } } ] }) // $and allows checking for different data on the same field
+    NOTE: Text from 'Mongo_Query-Operators_Notes.md' should go here adding Query Operators into the Read section of CRUD.
 
+# U pdate
 
+    
 # D elete
 
     To delete a database:
