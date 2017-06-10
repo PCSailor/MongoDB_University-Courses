@@ -6,7 +6,7 @@ Taken from video
 01_M101P_Mongodb-Developer-Course\Ch02-DRUD\Handouts\02_reading_documents
 [Reading Documents video] (https://university.mongodb.com/courses/MongoDB/M101P/2017_May/courseware/Chapter_2_CRUD)
 #-------------------------------------------
-# Use this file for reference
+# Use this file for reference Only
 # R ead Documents_Scaler Fields, Embedded Documents-Fields containing nested documents, Arrays-Equality Matches (on entire array, on any element, a specific element, operator complex matches)
     db.sumCollection.find({ sumKey : "sumValue" }).pretty() # on entire array # finds all values
     db.sumCollection.find({ sumKey : "sumValue" }).count() # gives count of all values

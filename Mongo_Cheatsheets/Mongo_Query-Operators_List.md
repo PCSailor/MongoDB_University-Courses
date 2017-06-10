@@ -53,3 +53,34 @@ $ 	            Projects the first element in an array that matches the query con
 $elemMatch 	    Projects the first element in an array that matches the specified $elemMatch condition.
 $meta 	        Projects the document’s score assigned during $text operation.
 $slice 	        Limits the number of elements projected from an array. Supports skip and limit slices.
+
+# Update
+[Field Update Operators](https://docs.mongodb.com/manual/reference/operator/update-field/)
+Field Update Operators:
+Name 	        Description
+$inc 	        Increments the value of the field by the specified amount.
+$mul 	        Multiplies the value of the field by the specified amount.
+$rename 	    Renames a field.
+$setOnInsert 	Sets the value of a field if an update results in an insert of a document.
+                Has no effect on update operations that modify existing documents.
+$set 	        Sets the value of a field in a document.
+$unset 	        Removes the specified field from a document.
+$min 	        Only updates the field if the specified value is less than the existing field value.
+$max 	        Only updates the field if the specified value is greater than the existing field value.
+$currentDate 	Sets the value of a field to current date, either as a Date or a Timestamp.
+[Array Update Operators](https://docs.mongodb.com/manual/reference/operator/update-array/)
+# Array Update Operators:
+Name 	    Description
+$ 	        Acts as a placeholder to update the first element that matches the query condition in an update.
+$addToSet 	Adds elements to an array only if they do not already exist in the set.
+$pop 	    Removes the first or last item of an array.
+$pullAll 	Removes all matching values from an array.
+$pull 	    Removes all array elements that match a specified query.
+$pushAll 	Deprecated. Adds several items to an array.
+$push 	    Adds an item to an array.
+# Array Update Operator Modifiers:
+Name 	    Description
+$each 	    Modifies the $push and $addToSet operators to append multiple items for array updates.
+$slice      Modifies the $push operator to limit the size of updated arrays.
+$sort 	    Modifies the $push operator to reorder documents stored in an array.
+$position 	Modifies the $push operator to specify the position in the array to add elements.

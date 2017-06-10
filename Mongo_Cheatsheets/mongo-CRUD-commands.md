@@ -30,6 +30,7 @@
 [Field Update Operators](https://docs.mongodb.com/manual/reference/operator/update-field/)
     // Needs an Update Operator
     db.sumCollection.updateOne({sumKey01: "sumValue01"}, { $set: {sumKey02: "sumValue02"} }) // Identifies the collection AND the document and then specifiy how to update ($set: is update operator)
+    db.sumCollection.updateOne({sumKey01: "sumValue01"}, { $inc: { "sumKey.sumSub-Key01": 3, "sumKey.sumSub-Key02": 25 } }) // increments two values by 3 and 25
 
 
 # ------------------------------------------------------------------------------
