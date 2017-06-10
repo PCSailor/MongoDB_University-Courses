@@ -33,6 +33,21 @@
     db.sumCollection.updateOne({sumKey01: "sumValue01"}, { $inc: { "sumKey.sumSub-Key01": 3, "sumKey.sumSub-Key02": 25 } }) // increments two values by 3 and 25
 
 
+
+
+    
+    db.sumCollection.updateOne({ sumKey01: "sumValue01" }, {
+        $push: {
+            sumKey: {
+                sumSub-Key01: 4.5,
+                sumSub-Key02: ISODate("2016-01-12T09:00:00Z"), // for example-date
+               sumSub-Key03: "Spencer H.",
+               sumSub-Key04: "The Martian could have been a sad drama film, instead it was a hilarious film with a little bit of drama added to it. The Martian is what everybody wants from a space adventure. Ridley Scott can still make great movies and this is one of his best."
+            }
+        }
+    })    
+
+
 # ------------------------------------------------------------------------------
 # D elete
 
