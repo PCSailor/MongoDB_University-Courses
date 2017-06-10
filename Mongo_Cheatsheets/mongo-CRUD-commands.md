@@ -1,9 +1,13 @@
 # Mongo Crud operations
-# C reating Documents
+# ------------------------------------------------------------------------------
+# C reating
     insertOne()
     insertMany()
     upsert - Update commands
-# R ead Documents_Scaler Fields, Embedded Documents-Fields containing nested documents, Arrays-Equality Matches (on entire array, on any element, a specific element, operator complex matches)
+# ------------------------------------------------------------------------------
+# R ead 
+[Query & Projection Operators](https://docs.mongodb.com/manual/reference/operator/query/)
+    // Documents_Scaler Fields, Embedded Documents-Fields containing nested documents, Arrays-Equality Matches (on entire array, on any element, a specific element, operator complex matches)
     db.sumCollection.find({ sumKey : "sumValue" }).pretty() # on entire array # finds all values
     db.sumCollection.find({ sumKey : "sumValue" }).count() # gives count of all values
     db.sumCollection.find({ sumKey01 : "sumValue01", sumKey02 : "sumValue02" }).count() # gives count matching all values
@@ -21,12 +25,17 @@
         db.sumCollection.find({ sumKey01 : "sumValue01" }, { sumKey02 : 1, _id: 0 }).pretty() # # will contain only documents with sumKey02 AND will omit objectID values (=much cleaner results)
         # With the key, in the value, use a 1 to include or 0 to exclude from the query results
     NOTE: Text from 'Mongo_Query-Operators_Notes.md' should go here adding Query Operators into the Read section of CRUD.
-
+# ------------------------------------------------------------------------------
 # U pdate
+[Field Update Operators](https://docs.mongodb.com/manual/reference/operator/update-field/)
+    // Needs an Update Operator
+    db.sumCollection.updateOne({sumKey01: "sumValue01"}, { $set: {sumKey02: "sumValue02"} }) // Identifies the collection AND the document and then specifiy how to update ($set: is update operator)
 
-    
+
+# ------------------------------------------------------------------------------
 # D elete
 
     To delete a database:
         1) use sumDatabaseName
         2) db.dropDatabase();
+# --END-------------------------------------------------------------------------
