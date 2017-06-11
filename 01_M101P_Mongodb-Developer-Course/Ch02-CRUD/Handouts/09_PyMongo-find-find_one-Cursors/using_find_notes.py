@@ -9,7 +9,7 @@ def find():
 
     print "find(), reporting for duty"
 
-    query = {'type': 'exam'} # python dictionary query where type is exam
+    query = {'type': 'exam'} # python dictionary query to find the documents where the type is exam (Note: both type and exam are string literals)
 
     try:
         cursor = scores.find(query) # will call find on above query returning a cursor, not a document as find_one, because multiple documents returned
