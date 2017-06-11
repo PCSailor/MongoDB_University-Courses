@@ -13,7 +13,7 @@ def find():
 
     print "find, reporting for duty"
 
-    query = {'type': 'exam', 'score': {'$gt': 50, '$lt': 70}}
+    query = {'type': 'exam', 'score': {'$gt': 50, '$lt': 70}} # score is a key, scores is a collection
 
     try:
         cursor = scores.find(query)
