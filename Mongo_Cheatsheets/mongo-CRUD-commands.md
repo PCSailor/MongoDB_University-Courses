@@ -38,13 +38,13 @@
         # With the key, in the value, use a 1 to include or 0 to exclude from the query results
     NOTE: Text from 'Mongo_Query-Operators_Notes.md' should go here adding Query Operators into the Read section of CRUD.
 # ------------------------------------------------------------------------------
-# U pdate
+# U pdate (see saved video_'MongoDB_Updating Documents.mp4')
 [Field Update Operators](https://docs.mongodb.com/manual/reference/operator/update-field/)
     // Update needs an Update Operator
 
     db.sumCollection.updateOne({sumKey01: "sumValue01"}, { $set: {sumKey02: "sumValue02"} }) // Identifies the collection AND the document and then specifiy how to update ($set: is update operator)
     db.sumCollection.updateOne({sumKey01: "sumValue01"}, { $inc: { "sumKey.sumSub-Key01": 3, "sumKey.sumSub-Key02": 25 } }) // increments two values by 3 and 25
-    
+#   Push Operator - If the 'sumKey'field does not exist, Mongo will create it as an array field.
     db.sumCollection.updateOne({ sumKey01: "sumValue01" }, {
         $push: {
             sumKey: {
@@ -55,8 +55,8 @@
             }
         }
     })  
-
-      db.sumCollection.updateOne({ sumKey01: "sumValue01" }, {
+#   $each - When pushing onto an existing field (Question: does it create also?) using the $each modifier instructs to push on each one of these documents as an individual element of the 'sumKey' array.  If not used, the entire array here will be pushed on as a single element.
+    db.sumCollection.updateOne({ sumKey01: "sumValue01" }, {
         $push: {
             sumKey: {
                 $each: [{
@@ -76,6 +76,31 @@
         }
     })
 
+#   Slice Operator - same operation as $each above but adding slice operator to keep only 5 sumKeys.  Using a positive or negative number with slice indicates to keep the most recent or last sumKeys.
+#   Position Operaptor - Instructs added values to go onto the front of the array
+    db.sumCollection.updateOne({ sumKey01: "sumValue01" }, {
+        $push: {
+            sumKey: {
+                $each: [{
+                    sumSub-Key01: sumSub-Value01, // 4.3 //  for example: number
+                    sumSub-Key02: sumSub-Value02 // ISODate("2016-01-12T09:00:00Z"), // for example: date
+                    sumSub-Key03: "sumSub-Value03",
+                    sumSub-Key04: "sumSub-Value04"
+                    }],
+                $position: 0,
+                $slice: 5
+            }
+        }
+    })
+
+#   updateMany - Same formats as above work but will modify all documents matching the filter
+    db.sumCollection.updateMany({ sumKey01: null }, { $unset: { sumKey01: "" } }) // removes all matching elements // Value given doesn't matter, just use empty string (Questions: Why use anything? "")
+
+#   upserts -  Operations where if no document is found matching the filter, the document is inserted.
+    db.sumCollection.updateOne({ "sumKey01.id": sumVar01.sumKey01.id }, { $set: sumVar01 }, { upsert: true }); // Prevents adding in a duplicate document with a different _id // update any document having the sumKey01.id value equal to the sumKey01.id value in the variable sumVar01 document. // 'sumVar01' is a created variable of the object that represents the document in the collection // Upsert adds the document if it does not exist
+
+#   replaceOne
+    db.movies.replaceOne({ "sumKey01": sumVar01.sumKey01.id }, sumVar01); // replace one document with a document from a created variable
 
 # ------------------------------------------------------------------------------
 # D elete
