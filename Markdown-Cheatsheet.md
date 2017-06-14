@@ -1,7 +1,7 @@
 console.log(new Date().getFullYear() + ' sumFile is run'); 
 <br>#---------------------------------------------------------------------------<br>
-#Markdown Cheatsheet<br>
-*My Useful Markdown*<br>
+# Markdown Cheatsheet<br>
+1) Red<br>
 
 <br>#---------------------------------------------------------------------------<br>
 OLD NOTES FROM PA CLASS: <br>
